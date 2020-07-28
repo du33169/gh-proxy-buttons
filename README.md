@@ -15,14 +15,14 @@ Add a button beside github link(releases,files and repository url), click to get
 
 1. 首先你需要为你的浏览器安装[油猴脚本管理器](https://www.tampermonkey.net/)。
 
-2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/image-20200728152241242.png)
+2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152241242.png)
 
-3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/image-20200728152334351.png)
+3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152334351.png)
 
 4. 此时你可以选择下列方式安装：
 
 	1. “文件”：下载代码中的gh-proxy-buttons.js并在此处导入。
-	2. “Install from url”：复制此[链接](https://github.com/du33169/gh-proxy-buttons/gh-proxy-buttons.js)，填入并点击“安装”。
+	2. “Install from url”：复制此[链接](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，填入并点击“安装”。
 
 ## 使用
 
@@ -32,12 +32,12 @@ Add a button beside github link(releases,files and repository url), click to get
 
 对于仓库地址，点击按钮将会复制代理后的链接（基于[ClipboardJS](https://clipboardjs.com/)），可直接用于git clone。
 
-| 对象                               | 图示                                  | 说明                                                         |
-| ---------------------------------- | ------------------------------------- | ------------------------------------------------------------ |
-| Releases页面的下载按钮             | ![release](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
-| 代码页面的文件链接（不支持文件夹） | ![file](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/file.png)       | 点击按钮通过代理下载或右键复制链接                           |
-| 仓库地址的复制按钮                 | ![copy](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/copy.png)       | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
-| 完整仓库的压缩包下载               | ![zip](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/zip.png)         | 点击按钮通过代理下载或右键复制链接                           |
+| 对象                               | 图示                                                         | 说明                                                         |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Releases页面的下载按钮             | ![release](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
+| 代码页面的文件链接（不支持文件夹） | ![file](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/file.png) | 点击按钮通过代理下载或右键复制链接                           |
+| 仓库地址的复制按钮                 | ![copy](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/copy.png) | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
+| 完整仓库的压缩包下载               | ![zip](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/zip.png) | 点击按钮通过代理下载或右键复制链接                           |
 
 ## 自定义代理服务器
 
@@ -47,7 +47,7 @@ Add a button beside github link(releases,files and repository url), click to get
 
 可以直接编辑脚本修改使用的代理服务器（**末尾斜杠不可省略**）：
 
-![image-20200728160207769](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/image-20200728160207769.png)
+![image-20200728160207769](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728160207769.png)
 
 ### 声明
 

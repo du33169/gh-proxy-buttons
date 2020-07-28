@@ -28,14 +28,14 @@
 			return;
 		
 		//创建按钮对象,github中使用.btn的class可以为<a>标签加上按钮外观
-		var btn=document.createElement(e.tagName=="CLIPBOARD-COPY"?'button':'a');//对于仓库地址使用button以实现点击复制
+		var btn=document.createElement(e.tagName=="INPUT"?'button':'a');//对于仓库地址使用button以实现点击复制
 		btn.setAttribute('class','btn');
 		btn.id="gh-proxy-button";
 		btn.title="get proxy link";
 		btn.style.position="absolute";
 		btn.role="button";
 		btn.innerText="🚀";
-		if(e.tagName=="CLIPBOARD-COPY")//复制仓库地址按钮适配，使用ClipboardJS实现点击复制
+		if(e.tagName=="INPUT")//仓库地址niput适配，使用ClipboardJS实现点击复制
 		{		
 			btn.innerText+="📄";
 			new ClipboardJS(btn);
@@ -61,7 +61,7 @@
 			});
 		btn.addEventListener('mouseleave',function(){
 				e.parentNode.removeChild(btn);
-				if(open_log)console.debug('[gh-proxy-buttons] mouseout-btn');
+				if(open_log)console.debug('[gh-proxy-buttons] mouseleave-btn');
 			});
 
 		function emoveout(){//鼠标移出原元素
@@ -69,7 +69,7 @@
 				if(!onbtn)
 				{
 					e.parentNode.removeChild(btn);
-					if(open_log)console.debug('[gh-proxy-buttons] mouseout',originLink);
+					if(open_log)console.debug('[gh-proxy-buttons] mouseleave',originLink);
 					e.removeEventListener('mouseleave',emoveout);
 				}
 			},3);
@@ -77,13 +77,14 @@
 			}
 		e.addEventListener('mouseleave',emoveout);
 	}
-
-	//releases页面的下载链接 
+	
+	
+	//releases页面的下载链接，用事件委托会出问题所以用老办法
 	var aList=document.querySelectorAll('a[rel=nofollow]');
 	var cnt=0;
 	for(var i=0;i<aList.length;++i)
     {
-        if(/github.com/.test(aList[i].href)==true)
+        if(/github.com/.test(aList[i].href)==true&&aList[i].title!="Go to parent directory")
         {
 			if(open_log)console.log(aList[i].href);
 			aList[i].addEventListener('mouseenter',
@@ -99,58 +100,43 @@
 	}
 	else console.warn('[gh-proxy-buttons] releases link not found');
 	
-	//代码界面的文件链接（不支持文件夹）
-	var fileList=document.querySelectorAll('#files~div a.js-navigation-open');
-	cnt=0;
-	for(i=0;i<fileList.length;++i)
-    {
-        if(fileList[i]
-		.parentNode
-		.parentNode
-		.previousElementSibling
-		.querySelector('svg[aria-label=File]'))//根据前面的图标判断是否是文件夹
-        {
-			if(open_log)console.log(fileList[i].href);
-			fileList[i].addEventListener('mouseenter',
-			function(){
-				moveHere(event.currentTarget,event.currentTarget.href);
-				});
-			++cnt;
-        }
-    }
-	if(!fileList)
-	{
-		console.warn('[gh-proxy-buttons] fileList undetected');
+	function eventDelegation(e) {
+    // e.target 是事件触发的元素
+	//console.log(e.target);
+		if(e.target ) {
+			if(open_log)
+				console.log('[gh-proxy-buttons] '+e.target.tagName);
+			if(
+				e.target.tagName=='A'
+				
+				&&(
+					e.target.getAttribute('class').indexOf("js-navigation-open")!=-1
+					&&e.target.parentNode.parentNode.previousElementSibling
+					.querySelector('svg[aria-label=File]')//文件链接
+					
+					||	e.target.rel=="nofollow"&&e.target.title!="Go to parent directory"
+						&&/github.com/.test(e.target.href)==true//打包下载
+				)
+			)
+			{
+				moveHere(e.target,e.target.href);
+			}
+			else if(e.target==document.querySelector(
+				`#js-repo-pjax-container 
+				> div.container-xl.clearfix.new-discussion-timeline.px-3.px-md-4.px-lg-5 
+				> div > div.gutter-condensed.gutter-lg.d-flex.flex-column.flex-md-row 
+				> div.flex-shrink-0.col-12.col-md-9.mb-4.mb-md-0 
+				> div.file-navigation.mb-3.d-flex.flex-items-start 
+				> span > get-repo > details > div > div > div:nth-child(1) 
+				> div > div > div > input`
+				))//地址input标签
+			{
+				moveHere(e.target,e.target.value);
+			}
+		}
 	}
-	else if(cnt)
-	{
-		console.log('[gh-proxy-buttons] file link processed');
-	}
-	else 
-	{
-		console.error('[gh-proxy-buttons] file link not found');
-		console.log(fileList);
-	}
-	
-	//仓库地址的复制按钮
-	var gitLink=document.querySelector('clipboard-copy:nth-child(1)');
-	if(gitLink)
-	{
-		gitLink.addEventListener('mouseenter',
-		function(){
-			moveHere(event.currentTarget,document.querySelector(
-			`#js-repo-pjax-container 
-			> div.container-xl.clearfix.new-discussion-timeline.px-3.px-md-4.px-lg-5 
-			> div > div.gutter-condensed.gutter-lg.d-flex.flex-column.flex-md-row 
-			> div.flex-shrink-0.col-12.col-md-9.mb-4.mb-md-0 
-			> div.file-navigation.mb-3.d-flex.flex-items-start 
-			> span > get-repo > details > div > div > div:nth-child(1) 
-			> div > div > div > input`
-			).value);//获取前面input里的项目地址
-			});
-		
-		console.log('[gh-proxy-buttons] copy link processed');
-	}
-	else console.warn('[gh-proxy-buttons] copy link not found');
-	
+	document.getElementById('js-repo-pjax-container').addEventListener("mouseover", eventDelegation);
+	//document.querySelector('.repository-content').addEventListener("mouseover", eventDelegation);
+	//releases页面使用事件委托未成功，可能是冒泡机制问题
+
 })();

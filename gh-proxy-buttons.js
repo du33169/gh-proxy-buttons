@@ -19,6 +19,13 @@
 	/**/                                                 /**/
 	/*****代理服务器地址可自行修改，末尾斜杠不可省略！******/
 	
+	var open_log=false;
+	var tmp_log=console.log;
+	if(!open_log)
+	{
+		console.log = ()=>{}
+	}
+	
 	function moveHere(e,originLink)//用于注册mouseenter事件,e为当前元素
 	{
 		if(document.getElementById('gh-proxy-button'))//如果已经产生按钮则返回，删去在Firefox会死循环（原因未知）
@@ -47,18 +54,18 @@
         btn.style.top=(e.offsetTop-btn.offsetHeight+padding).toString()+'px';//top等样式必须带有单位且为字符串类型
         btn.style.left=(e.offsetLeft-btn.offsetWidth+padding).toString()+'px';
 
-		console.log('mousein');
+		console.log('[gh-proxy-buttons] mousein');
 		
 		//以下逻辑处理鼠标移出的情况
 		
 		var onbtn=false;//鼠标移到btn上
 		btn.addEventListener('mouseenter',function(){
-			console.log('onbtn');
+			console.log('[gh-proxy-buttons] onbtn');
 			onbtn=true;
 			});
 		btn.addEventListener('mouseleave',function(){
 				e.parentNode.removeChild(btn);
-				console.log('mouseout-btn');
+				console.log('[gh-proxy-buttons] mouseout-btn');
 			});
 
 		function emoveout(){//鼠标移出原元素
@@ -66,7 +73,7 @@
 				if(!onbtn)
 				{
 					e.parentNode.removeChild(btn);
-					console.log('mouseout',originLink);
+					console.log('[gh-proxy-buttons] mouseout',originLink);
 					e.removeEventListener('mouseleave',emoveout);
 				}
 			},3);
@@ -79,7 +86,6 @@
 	var aList=document.querySelectorAll('a[rel=nofollow]');
 	for(var i=0;i<aList.length;++i)
     {
-        var x=aList[i];
         if(/github.com/.test(aList[i].href)==true)
         {
 			console.log(aList[i].href);
@@ -90,12 +96,11 @@
 
         }
     }
-	
+	if(aList)console.log('[gh-proxy-buttons] releases link processed');
 	//代码界面的文件链接（不支持文件夹）
 	var fileList=document.querySelectorAll('#files~div a.js-navigation-open');
-	for(var i=0;i<fileList.length;++i)
+	for(i=0;i<fileList.length;++i)
     {
-        var x=fileList[i];
         if(fileList[i]
 		.parentNode
 		.parentNode
@@ -109,7 +114,7 @@
 				});
         }
     }
-	
+	if(fileList)console.log('[gh-proxy-buttons] file link processed');
 	//仓库地址的复制按钮
 	var gitLink=document.querySelector('clipboard-copy:nth-child(1)');
 	if(gitLink)
@@ -126,5 +131,13 @@
 			> div > div > div > input`
 			).value);//获取前面input里的项目地址
 			});
+		
+		console.log('[gh-proxy-buttons] copy link processed');
+	}
+	
+	if(!open_log)
+	{
+		console.log=tmp_log;
+		console.log('console ok');
 	}
 })();

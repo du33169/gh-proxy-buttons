@@ -9,6 +9,7 @@
 // @author       du33169
 // @match        *://github.com/*
 // @grant        none
+// @run-at       document-end
 // ==/UserScript==
 (function() {
     'use strict'; 
@@ -20,12 +21,7 @@
 	/*****代理服务器地址可自行修改，末尾斜杠不可省略！******/
 	
 	var open_log=false;
-	var tmp_log=console.log;
-	if(!open_log)
-	{
-		console.log = ()=>{}
-	}
-	
+	console.log('[gh-proxy-buttons] processing...');
 	function moveHere(e,originLink)//用于注册mouseenter事件,e为当前元素
 	{
 		if(document.getElementById('gh-proxy-button'))//如果已经产生按钮则返回，删去在Firefox会死循环（原因未知）
@@ -54,18 +50,18 @@
         btn.style.top=(e.offsetTop-btn.offsetHeight+padding).toString()+'px';//top等样式必须带有单位且为字符串类型
         btn.style.left=(e.offsetLeft-btn.offsetWidth+padding).toString()+'px';
 
-		console.log('[gh-proxy-buttons] mousein');
+		if(open_log)console.debug('[gh-proxy-buttons] mousein');
 		
 		//以下逻辑处理鼠标移出的情况
 		
 		var onbtn=false;//鼠标移到btn上
 		btn.addEventListener('mouseenter',function(){
-			console.log('[gh-proxy-buttons] onbtn');
+			if(open_log)console.debug('[gh-proxy-buttons] onbtn');
 			onbtn=true;
 			});
 		btn.addEventListener('mouseleave',function(){
 				e.parentNode.removeChild(btn);
-				console.log('[gh-proxy-buttons] mouseout-btn');
+				if(open_log)console.debug('[gh-proxy-buttons] mouseout-btn');
 			});
 
 		function emoveout(){//鼠标移出原元素
@@ -73,7 +69,7 @@
 				if(!onbtn)
 				{
 					e.parentNode.removeChild(btn);
-					console.log('[gh-proxy-buttons] mouseout',originLink);
+					if(open_log)console.debug('[gh-proxy-buttons] mouseout',originLink);
 					e.removeEventListener('mouseleave',emoveout);
 				}
 			},3);
@@ -84,21 +80,28 @@
 
 	//releases页面的下载链接 
 	var aList=document.querySelectorAll('a[rel=nofollow]');
+	var cnt=0;
 	for(var i=0;i<aList.length;++i)
     {
         if(/github.com/.test(aList[i].href)==true)
         {
-			console.log(aList[i].href);
+			if(open_log)console.log(aList[i].href);
 			aList[i].addEventListener('mouseenter',
 			function(){
 				moveHere(event.currentTarget,event.currentTarget.href);
 				});
-
+			++cnt;
         }
     }
-	if(aList)console.log('[gh-proxy-buttons] releases link processed');
+	if(cnt)
+	{
+		console.log('[gh-proxy-buttons] releases link processed');
+	}
+	else console.warn('[gh-proxy-buttons] releases link not found');
+	
 	//代码界面的文件链接（不支持文件夹）
 	var fileList=document.querySelectorAll('#files~div a.js-navigation-open');
+	cnt=0;
 	for(i=0;i<fileList.length;++i)
     {
         if(fileList[i]
@@ -107,14 +110,28 @@
 		.previousElementSibling
 		.querySelector('svg[aria-label=File]'))//根据前面的图标判断是否是文件夹
         {
-			console.log(fileList[i].href);
+			if(open_log)console.log(fileList[i].href);
 			fileList[i].addEventListener('mouseenter',
 			function(){
 				moveHere(event.currentTarget,event.currentTarget.href);
 				});
+			++cnt;
         }
     }
-	if(fileList)console.log('[gh-proxy-buttons] file link processed');
+	if(!fileList)
+	{
+		console.warn('[gh-proxy-buttons] fileList undetected');
+	}
+	else if(cnt)
+	{
+		console.log('[gh-proxy-buttons] file link processed');
+	}
+	else 
+	{
+		console.error('[gh-proxy-buttons] file link not found');
+		console.log(fileList);
+	}
+	
 	//仓库地址的复制按钮
 	var gitLink=document.querySelector('clipboard-copy:nth-child(1)');
 	if(gitLink)
@@ -134,10 +151,6 @@
 		
 		console.log('[gh-proxy-buttons] copy link processed');
 	}
+	else console.warn('[gh-proxy-buttons] copy link not found');
 	
-	if(!open_log)
-	{
-		console.log=tmp_log;
-		console.log('console ok');
-	}
 })();

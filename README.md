@@ -15,9 +15,9 @@ Add a button beside github link(releases,files and repository url), click to get
 
 1. 首先你需要为你的浏览器安装[油猴脚本管理器](https://www.tampermonkey.net/)。
 
-2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](README.assets/image-20200728152241242.png)
+2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/image-20200728152241242.png)
 
-3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](README.assets/image-20200728152334351.png)
+3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/image-20200728152334351.png)
 
 4. 此时你可以选择下列方式安装：
 
@@ -34,10 +34,10 @@ Add a button beside github link(releases,files and repository url), click to get
 
 | 对象                               | 图示                                  | 说明                                                         |
 | ---------------------------------- | ------------------------------------- | ------------------------------------------------------------ |
-| Releases页面的下载按钮             | ![release](README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
-| 代码页面的文件链接（不支持文件夹） | ![file](README.assets/file.png)       | 点击按钮通过代理下载或右键复制链接                           |
-| 仓库地址的复制按钮                 | ![copy](README.assets/copy.png)       | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
-| 完整仓库的压缩包下载               | ![zip](README.assets/zip.png)         | 点击按钮通过代理下载或右键复制链接                           |
+| Releases页面的下载按钮             | ![release](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
+| 代码页面的文件链接（不支持文件夹） | ![file](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/file.png)       | 点击按钮通过代理下载或右键复制链接                           |
+| 仓库地址的复制按钮                 | ![copy](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/copy.png)       | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
+| 完整仓库的压缩包下载               | ![zip](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/zip.png)         | 点击按钮通过代理下载或右键复制链接                           |
 
 ## 自定义代理服务器
 
@@ -47,7 +47,7 @@ Add a button beside github link(releases,files and repository url), click to get
 
 可以直接编辑脚本修改使用的代理服务器（**末尾斜杠不可省略**）：
 
-![image-20200728160207769](README.assets/image-20200728160207769.png)
+![image-20200728160207769](https://github.com/du33169/gh-proxy-buttons/raw/master/README.assets/image-20200728160207769.png)
 
 ### 声明
 

@@ -36,7 +36,7 @@ Add a button beside github link(releases,files and repository url), click to get
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Releases页面的下载按钮             | ![release](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
 | 代码页面的文件链接（不支持文件夹） | ![file](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/file.png) | 点击按钮通过代理下载或右键复制链接                           |
-| 仓库地址的复制按钮                 | ![copy](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/copy.png) | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
+| 仓库地址的文本框                   | ![copy](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/input.png) | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
 | 完整仓库的压缩包下载               | ![zip](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/zip.png) | 点击按钮通过代理下载或右键复制链接                           |
 
 ## 自定义代理服务器

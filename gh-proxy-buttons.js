@@ -11,7 +11,8 @@
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
-(function() {
+(function() 
+{
     'use strict'; 
 	
 	/***********************自定义设置**********************/
@@ -35,7 +36,7 @@
 		btn.style.position="absolute";
 		btn.role="button";
 		btn.innerText="🚀";
-		if(e.tagName=="INPUT")//仓库地址niput适配，使用ClipboardJS实现点击复制
+		if(e.tagName=="INPUT")//仓库地址input标签特殊处理，使用ClipboardJS实现点击复制
 		{		
 			btn.innerText+="📄";
 			new ClipboardJS(btn);
@@ -56,8 +57,8 @@
 		
 		var onbtn=false;//鼠标移到btn上
 		btn.addEventListener('mouseenter',function(){
-			if(open_log)console.debug('[gh-proxy-buttons] onbtn');
-			onbtn=true;
+				if(open_log)console.debug('[gh-proxy-buttons] onbtn');
+				onbtn=true;
 			});
 		btn.addEventListener('mouseleave',function(){
 				e.parentNode.removeChild(btn);
@@ -66,30 +67,30 @@
 
 		function emoveout(){//鼠标移出原元素
 			setTimeout(function(){//setTimeout是个trick，确保在btn的mouseenter之后执行下述流程
-				if(!onbtn)
-				{
-					e.parentNode.removeChild(btn);
-					if(open_log)console.debug('[gh-proxy-buttons] mouseleave',originLink);
-					e.removeEventListener('mouseleave',emoveout);
-				}
-			},3);
-
+					if(!onbtn)
+					{				
+						e.parentNode.removeChild(btn);
+						if(open_log)
+							console.debug('[gh-proxy-buttons] mouseleave',originLink);
+						e.removeEventListener('mouseleave',emoveout);
+					}
+				},3);
 			}
 		e.addEventListener('mouseleave',emoveout);
 	}
-	
-	
+		
 	//releases页面的下载链接，用事件委托会出问题所以用老办法
 	var aList=document.querySelectorAll('a[rel=nofollow]');
 	var cnt=0;
 	for(var i=0;i<aList.length;++i)
     {
-        if(/github.com/.test(aList[i].href)==true&&aList[i].title!="Go to parent directory")
+        if(/github.com/.test(aList[i].href)==true
+		&& aList[i].title!="Go to parent directory")
         {
 			if(open_log)console.log(aList[i].href);
 			aList[i].addEventListener('mouseenter',
 			function(){
-				moveHere(event.currentTarget,event.currentTarget.href);
+					moveHere(event.currentTarget,event.currentTarget.href);
 				});
 			++cnt;
         }
@@ -100,10 +101,12 @@
 	}
 	else console.warn('[gh-proxy-buttons] releases link not found');
 	
-	function eventDelegation(e) {
+	function eventDelegation(e) 
+	{
     // e.target 是事件触发的元素
 	//console.log(e.target);
-		if(e.target ) {
+		if(e.target ) 
+		{
 			if(open_log)
 				console.log('[gh-proxy-buttons] '+e.target.tagName);
 			if(

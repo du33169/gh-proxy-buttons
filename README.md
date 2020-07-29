@@ -1,7 +1,7 @@
 # gh-proxy-buttons
 ## 简介
 
-一个油猴脚本，为github中的特定链接（releases、文件、项目地址）添加一个悬浮按钮，提供代理后的加速链接。不需要修改hosts，不需要导入仓库，所需的仅仅是在油猴中安装本脚本。
+一个基于[gh-proxy](https://github.com/hunshcn/gh-proxy)的油猴脚本，为github中的特定链接（releases、文件、项目地址）添加一个悬浮按钮，提供代理后的加速链接。不需要修改hosts，不需要导入仓库，所需的仅仅是在油猴中安装本脚本。
 
 Add a button beside github link(releases,files and repository url), click to get alternative url according to previously specified proxy.
 
@@ -30,7 +30,7 @@ Add a button beside github link(releases,files and repository url), click to get
 
 对于链接，点击出现的按钮将会通过代理开始下载该文件；
 
-对于仓库地址，点击按钮将会复制代理后的链接（基于[ClipboardJS](https://clipboardjs.com/)），可直接用于git clone。
+对于仓库地址，点击按钮将会复制代理后的链接（基于[ClipboardJS](https://clipboardjs.com)，可直接用于git clone。
 
 | 对象                               | 图示                                                         | 说明                                                         |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -41,7 +41,7 @@ Add a button beside github link(releases,files and repository url), click to get
 
 ## 自定义代理服务器
 
-本脚本是基于[gh-proxy](https://github.com/hunshcn/gh-proxy)项目的二次包装，默认代理服务器为该项目的演示服务器[https://gh.api.99988866.xyz/](https://gh.api.99988866.xyz/)，也可直接点击以网页形式代理下载。
+本脚本是[gh-proxy](https://github.com/hunshcn/gh-proxy)项目的二次包装，默认代理服务器为该项目的演示服务器[https://gh.api.99988866.xyz/](https://gh.api.99988866.xyz/)，也可直接点击链接以网页形式代理下载。
 
 由于演示服务器限制，如果需要大量下载，请自行部署服务器。
 
@@ -49,10 +49,14 @@ Add a button beside github link(releases,files and repository url), click to get
 
 ![image-20200728160207769](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728160207769.png)
 
-### 声明
+## 声明
 
 不是专业前端，代码写的乱乱；
 
 如果觉得很赞，点个star围观；
 
 大佬路过看看，批评不要手软！
+
+## 相关项目
+
+[Tampermonkey](https://github.com/Tampermonkey/tampermonkey) [gh-proxy](https://github.com/hunshcn/gh-proxy) [ClipboardJS](https://github.com/zenorocha/clipboard.js) 

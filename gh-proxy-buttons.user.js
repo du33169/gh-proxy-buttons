@@ -2,7 +2,7 @@
 // @name         gh-proxy-buttons
 // @name:zh-CN   github加速按钮
 // @namespace    https://github.com/du33169/gh-proxy-buttons
-// @version      0.1
+// @version      0.2
 // @require      https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.6/clipboard.min.js
 // @description  add a button beside github link(releases,files and repository url), click to get alternative url according to previously specified proxy.
 // @description:zh-CN  为github中的特定链接（releases、文件、项目地址）添加一个悬浮按钮，提供代理后的加速链接
@@ -15,11 +15,13 @@
 {
     'use strict'; 
 	
-	/***********************自定义设置**********************/
-	/**/                                                 /**/
-	/**/  var proxy_url='https://gh.api.99988866.xyz/';  /**/ 
-	/**/                                                 /**/
-	/*****代理服务器地址可自行修改，末尾斜杠不可省略！******/
+	/********************×***代理设置*******************************/
+	/**/                                                          /**/
+	/**/                                                          /**/
+	/**/  var proxy_url= 'https://gh-proxy.du33169.workers.dev/'; /**/ 
+	/**/                                                          /**/    
+	/*            备用： 'https://gh.api.99988866.xyz/';            */
+	/*********代理服务器地址可自行修改，末尾斜杠不可省略！***********/
 	
 	var open_log=false;
 	console.log('[gh-proxy-buttons] processing...');

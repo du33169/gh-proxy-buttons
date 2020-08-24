@@ -15,14 +15,14 @@ Add a button beside github link(releases,files and repository url), click to get
 
 1. 首先你需要为你的浏览器安装[油猴脚本管理器](https://www.tampermonkey.net/)。
 
-2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152241242.png)
+2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152241242.png)
 
-3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152334351.png)
+3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152334351.png)
 
 4. 此时你可以选择下列方式安装：
 
 	1. “文件”：下载代码中的gh-proxy-buttons.js并在此处导入。
-	2. “Install from url”：复制此[链接](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，填入并点击“安装”。
+	2. “Install from url”：复制此[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，填入并点击“安装”。
 
 ## 使用
 
@@ -34,28 +34,26 @@ Add a button beside github link(releases,files and repository url), click to get
 
 | 对象                               | 图示                                                         | 说明                                                         |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Releases页面的下载按钮             | ![release](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
-| 代码页面的文件链接（不支持文件夹） | ![file](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/file.png) | 点击按钮通过代理下载或右键复制链接                           |
-| 仓库地址的文本框                   | ![copy](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/input.png) | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
-| 完整仓库的压缩包下载               | ![zip](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/zip.png) | 点击按钮通过代理下载或右键复制链接                           |
+| Releases页面的下载按钮             | ![release](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/release.png) | 点击按钮通过代理下载或右键复制链接                           |
+| 代码页面的文件链接（不支持文件夹） | ![file](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/file.png) | 点击按钮通过代理下载或右键复制链接                           |
+| 仓库地址的文本框                   | ![copy](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/input.png) | 点击复制仓库链接（基于[ClipboardJS](https://clipboardjs.com/)） |
+| 完整仓库的压缩包下载               | ![zip](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/zip.png) | 点击按钮通过代理下载或右键复制链接                           |
 
 ## 自定义代理服务器
 
-本脚本是[gh-proxy](https://github.com/hunshcn/gh-proxy)项目的二次包装，默认代理服务器为该项目的演示服务器[https://gh.api.99988866.xyz/](https://gh.api.99988866.xyz/)，也可直接点击链接以网页形式代理下载。
+本脚本是[gh-proxy](https://github.com/hunshcn/gh-proxy)项目的二次包装，原项目的演示服务器为[https://gh.api.99988866.xyz](https://gh.api.99988866.xyz)，也可直接点击链接以网页形式使用。
 
-由于演示服务器限制，如果需要大量下载，请自行部署服务器。
+**注意**：由于cloudflare免费版worker有单日请求数限制，如果需要大量下载，请根据[教程](https://github.com/hunshcn/gh-proxy#cf-worker%E7%89%88%E6%9C%AC%E9%83%A8%E7%BD%B2)自行部署worker。
 
-可以直接编辑脚本修改使用的代理服务器（**末尾斜杠不可省略**）：
+我也部署了一个worker用于分流，也是目前脚本中默认使用的：[https://gh-proxy.du33169.workers.dev/](https://gh-proxy.du33169.workers.dev/)。
 
-![image-20200728160207769](https://gh.api.99988866.xyz/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728160207769.png)
+当然如果有条件也请自行按要求部署（免费）。
 
-## 声明
 
-不是专业前端，代码写的乱乱；
+要修改使用的代理服务器，可以直接编辑脚本（**末尾斜杠不可省略**）：
 
-如果觉得很赞，点个star围观；
+![image-20200728160207769](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728160207769.png)
 
-大佬路过看看，批评不要手软！
 
 ## 相关项目
 

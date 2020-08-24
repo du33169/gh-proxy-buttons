@@ -7,22 +7,26 @@ Add a button beside github link(releases,files and repository url), click to get
 
 ## 安装
 
+无论如何，首先你需要为你的浏览器安装[油猴脚本管理器](https://www.tampermonkey.net/)。
+
 ### 自动安装
 
-敬请期待
+点击此处[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，如果一切顺利，会跳转到油猴的脚本安装页面，点击“安装”即可。
 
 ### 手动安装
 
-1. 首先你需要为你的浏览器安装[油猴脚本管理器](https://www.tampermonkey.net/)。
+2. 点击油猴脚本管理器的图标，它通常长这个样子：![image-20200728152241242](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152241242.png)
 
-2. 点击扩展图标，它通常长这个样子：![image-20200728152241242](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152241242.png)
+2. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152334351.png)
 
-3. 点击“管理面板”，选择“实用工具”选项卡：![image-20200728152334351](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152334351.png)
+3. 此时你可以选择下列方式安装：
 
-4. 此时你可以选择下列方式安装：
+  1. “文件”：下载代码中的gh-proxy-buttons.js并在此处导入。
+  2. “Install from url”：复制如下链接，填入并点击“安装”。
 
-	1. “文件”：下载代码中的gh-proxy-buttons.js并在此处导入。
-	2. “Install from url”：复制此[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，填入并点击“安装”。
+```txt
+https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js
+```
 
 ## 使用
 

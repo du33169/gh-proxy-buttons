@@ -13,6 +13,8 @@ Add a button beside github link(releases,files and repository url), click to get
 
 点击此处[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，如果一切顺利，会跳转到油猴的脚本安装页面，点击“安装”即可。
 
+![install](README.assets/install.png)
+
 ### 手动安装
 
 2. 点击油猴脚本管理器的图标，它通常长这个样子：![image-20200728152241242](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/image-20200728152241242.png)

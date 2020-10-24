@@ -43,6 +43,7 @@
 			btn.innerText+="📄";
 			new ClipboardJS(btn);
 			btn.setAttribute('data-clipboard-text',proxy_url+originLink);
+			console.log('[gh-proxy-buttons] input url processed');
 		}
 		else btn.href=proxy_url+originLink;
 
@@ -103,6 +104,17 @@
 	}
 	else console.warn('[gh-proxy-buttons] releases link not found');
 	
+	if(document.querySelector(
+		`#js-repo-pjax-container
+		 div.container-xl.clearfix.new-discussion-timeline.px-3.px-md-4.px-lg-5
+		 div.repository-content div.gutter-condensed.gutter-lg.flex-column.flex-md-row.d-flex
+		 div.flex-shrink-0.col-12.col-md-9.mb-4.mb-md-0 div.file-navigation.mb-3.d-flex.flex-items-start
+		 span.d-none.d-md-flex.ml-2 get-repo details.position-relative.details-overlay.details-reset
+		 div.position-relative div.dropdown-menu.dropdown-menu-sw.p-0 div div.border-bottom.p-3 tab-container
+		 div div.input-group input.form-control.input-monospace.input-sm.bg-gray-light`
+		)==null)
+		console.error('url <input> not found');
+
 	function eventDelegation(e) 
 	{
     // e.target 是事件触发的元素
@@ -127,13 +139,13 @@
 				moveHere(e.target,e.target.href);
 			}
 			else if(e.target==document.querySelector(
-				`#js-repo-pjax-container 
-				> div.container-xl.clearfix.new-discussion-timeline.px-3.px-md-4.px-lg-5 
-				> div > div.gutter-condensed.gutter-lg.d-flex.flex-column.flex-md-row 
-				> div.flex-shrink-0.col-12.col-md-9.mb-4.mb-md-0 
-				> div.file-navigation.mb-3.d-flex.flex-items-start 
-				> span > get-repo > details > div > div > div:nth-child(1) 
-				> div > div > div > input`
+				`#js-repo-pjax-container
+				 div.container-xl.clearfix.new-discussion-timeline.px-3.px-md-4.px-lg-5
+				 div.repository-content div.gutter-condensed.gutter-lg.flex-column.flex-md-row.d-flex
+				 div.flex-shrink-0.col-12.col-md-9.mb-4.mb-md-0 div.file-navigation.mb-3.d-flex.flex-items-start
+				 span.d-none.d-md-flex.ml-2 get-repo details.position-relative.details-overlay.details-reset
+				 div.position-relative div.dropdown-menu.dropdown-menu-sw.p-0 div div.border-bottom.p-3 tab-container
+				 div div.input-group input.form-control.input-monospace.input-sm.bg-gray-light`
 				))//地址input标签
 			{
 				moveHere(e.target,e.target.value);

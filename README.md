@@ -11,7 +11,7 @@ Add a button beside github link(releases,files and repository url), click to get
 
 ### 自动安装
 
-点击此处[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.user.js)，如果一切顺利，会跳转到油猴的脚本安装页面，点击“安装”即可。
+脚本已发布在[Grease Fork](https://greasyfork.org/zh-CN/scripts/423488-gh-proxy-buttons)，点击即可安装。（确保已安装油猴）
 
 ![install](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/install.png)
 

@@ -11,7 +11,7 @@ Add a button beside github link(releases,files and repository url), click to get
 
 ### 自动安装
 
-点击此处[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js)，如果一切顺利，会跳转到油猴的脚本安装页面，点击“安装”即可。
+点击此处[链接](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.user.js)，如果一切顺利，会跳转到油猴的脚本安装页面，点击“安装”即可。
 
 ![install](https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/README.assets/install.png)
 
@@ -27,7 +27,7 @@ Add a button beside github link(releases,files and repository url), click to get
   2. “Install from url”：复制如下链接，填入并点击“安装”。
 
 ```txt
-https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.js
+https://gh-proxy.du33169.workers.dev/https://github.com/du33169/gh-proxy-buttons/blob/master/gh-proxy-buttons.user.js
 ```
 
 ## 使用
